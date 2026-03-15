@@ -1,7 +1,3 @@
-This structure is optimized for a GitHub or GitLab `README.md`. It uses clean Markdown formatting, clear hierarchies, and includes the **Engineering Decision Matrix** in a copy-paste-friendly format.
-
----
-
 # Claim Intelligence Framework (CIF)
 
 The **Claim Intelligence Framework (CIF)** is an end-to-end Machine Learning ecosystem designed to optimize the healthcare revenue cycle by predicting claim outcomes. This framework documents five distinct engineering pillars utilized to solve the problem of claim denials with high precision.
