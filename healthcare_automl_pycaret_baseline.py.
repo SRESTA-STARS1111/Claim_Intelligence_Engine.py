@@ -1,0 +1,65 @@
+
+dataset=spark.table("sample_healthcare_dataset")
+dataset.display()
+
+df1=dataset.toPandas()
+
+df1.head()
+
+df1.info()
+
+df1.describe()
+
+df1.display()
+
+df1.isnull().sum()
+
+import pandas as pd
+
+df1['age'] = (pd.Timestamp('now', tz='UTC') - pd.to_datetime(df1['dob'], utc=True)).dt.days // 365
+
+df1.display()
+
+df1.columns
+
+# Think of setup() as the magic “initialize everything for ML” function. Once you call it, PyCaret:
+# Detects column types: numeric, categorical, text, date
+# Handles missing values automatically (mean/mode by default)
+# Encodes categorical variables (label or one-hot encoding as needed)
+# Scales/normalizes numeric features if requested
+# Splits data into train/test sets
+# Processes the target variable (multiclass classification or regression)
+# Removes or flags outliers if you enable remove_outliers
+# Generates automatic EDA report if you set profile=True
+# Handles class imbalance if you set fix_imbalance=True
+# Stores all preprocessing info internally, so all later PyCaret functions know what to do
+
+import sys
+print(sys.version)
+
+from pycaret.classification import *
+
+clf=setup(
+    data=df1,
+    target='appealOutcome',
+    session_id=42,
+    ignore_features=['facilityId', 'patientControlNumber', 'lastName', 'firstName', 'gender',
+       'dob', 'facilityState', 'insuranceName',
+       'initialclaimStatus'
+       ],
+    profile=True
+     
+)
+
+from pycaret.classification import compare_models
+
+best_model = compare_models()
+
+from pycaret.classification import create_model, tune_model
+
+rf = create_model('rf')         # Random Forest
+tuned_rf = tune_model(rf)       # Tune hyperparameters
+
+from pycaret.classification import evaluate_model
+
+evaluate_model(tuned_rf)
