@@ -44,7 +44,6 @@ The **Claim Intelligence Framework (CIF)** is an end-to-end Machine Learning eco
 | **High Cardinality** | Frequency Encoding | Preserves signal without dimensionality explosion for insurance codes. |
 | **Data Scalability** | PySpark ML Pipelines | MLlib's Pipeline API ensures a unified, scalable transformation process. |
 | **Interpretability** | SHAP TreeExplainer | Ensures model transparency for healthcare finance audits. |
-| **Environment** | Docker & Kubernetes | Containerization ensures consistent runtime and dynamic scaling. |
 | **Licensing** | Open-Source (Apache 2.0) | Eliminates licensing costs and prevents proprietary vendor lock-in. |
 
 ---
